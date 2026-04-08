@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/skonandur/3ec9ce10-d50e-4aef-a337-3e67a0268e38/24694fab-3de5-4636-b6b0-1278c558fa40/_apis/work/boardbadge/21be8892-43d0-4948-bec5-bbfd64023161)](https://dev.azure.com/skonandur/3ec9ce10-d50e-4aef-a337-3e67a0268e38/_boards/board/t/24694fab-3de5-4636-b6b0-1278c558fa40/Microsoft.EpicCategory)
 This is a demo application used for delivering a presentation on [Spock](http://spockframework.org/). The presentation is aimed at Java developers familiar with [JUnit](http://junit.org/) and consists of a re-implementation of some JUnit tests as Spock specifications.
 
 The application is a simple simulation of a vending machine. There are unit tests written using JUnit and [JMock](http://jmock.org/) under `src/test/java` and corresponding Spock specifications under `src/test/groovy`.
