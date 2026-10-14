@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "id": "20261014121854",
+    "generated_at": "2026-10-14T12:18:54.846504+00:00",
+    "note": "Security-only report; core Java assessment blocked by missing MCP tools.",
+    "assessmentStatus": "partial",
+    "coreAssessmentStatus": "blocked",
+    "limitations": [
+      "Security-only assessment. Core Java cloud-readiness and Java-upgrade assessment was not run: neither appmod-run-assessment-action nor appmod-precheck-assessment MCP tool is available. Configure the Java assessment MCP server to expose either tool, then rerun the assessment skill. Empty core rules/incidents mean NOT ASSESSED, not zero migration issues.",
+      "Dependency tree command ./gradlew dependencies --configuration runtimeClasspath -q exited 1 because the Gradle 1.4 HTTP distribution download returned 403. Five direct dependencies (including test dependencies) were queried against GitHub Security Advisories; transitive coverage is incomplete.",
+      "Six raw CVE matches; only two critical matches retained at minimum severity high. Version matches do not establish reachable exploitation.",
+      "Static CWE review of eight production Java files; tests, generated code, dependency internals, external callers, hardware implementations and deployment integrations excluded. No runtime verification. NOT_FOUND means no pattern observed within this scope, not proof of safety.",
+      "Eight CWE matches represent six underlying concerns: CWE-567, CWE-662 and CWE-820 overlap on one shared-queue race. CWE severity potential is an assessment classification, not CVSS severity."
+    ],
+    "configuration": {
+      "analysisCoverage": "issue-only",
+      "minimumCveSeverity": "high",
+      "requestedAssessmentDomains": [
+        "java-upgrade",
+        "cloud-readiness"
+      ],
+      "requestedTargetRuntime": "openjdk25"
+    }
+  },
+  "projects": [
+    {
+      "properties": {
+        "repo": "vending-machine",
+        "appName": "vending-machine",
+        "languages": [
+          "Java",
+          "Groovy (tests)"
+        ],
+        "frameworks": [
+          "Spock and JUnit/JMock (tests)"
+        ],
+        "tools": [
+          "Gradle 1.4"
+        ],
+        "applicationType": "Vending-machine simulation library / testing demonstration",
+        "description": "Security-only assessment. Core Java cloud-readiness and Java-upgrade assessment was not run: neither appmod-run-assessment-action nor appmod-precheck-assessment MCP tool is available. Configure the Java assessment MCP server to expose either tool, then rerun the assessment skill. Empty core rules/incidents mean NOT ASSESSED, not zero migration issues. Dependency tree command ./gradlew dependencies --configuration runtimeClasspath -q exited 1 because the Gradle 1.4 HTTP distribution download returned 403. Five direct dependencies (including test dependencies) were queried against GitHub Security Advisories; transitive coverage is incomplete. Six raw CVE matches; only two critical matches retained at minimum severity high. Version matches do not establish reachable exploitation. Static CWE review of eight production Java files; tests, generated code, dependency internals, external callers, hardware implementations and deployment integrations excluded. No runtime verification. NOT_FOUND means no pattern observed within this scope, not proof of safety. Eight CWE matches represent six underlying concerns: CWE-567, CWE-662 and CWE-820 overlap on one shared-queue race. CWE severity potential is an assessment classification, not CVSS severity."
+      },
+      "incidents": []
+    }
+  ],
+  "rules": {},
+  "security": [
+    {
+      "id": "CVE-2015-3253",
+      "title": "Improper Neutralization of Special Elements in Output Used by a Downstream Component in Apache Groovy",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2015-3253](https://github.com/advisories/GHSA-qg25-hgjv-cg9q): Improper Neutralization of Special Elements in Output Used by a Downstream Component in Apache Groovy\n\nSeverity: CRITICAL\n\nAffected dependencies:\n- org.codehaus.groovy:groovy-all:2.1.2 (declared at build.gradle:8); affected range: >= 1.7.0, <= 2.4.3; first patched version: 2.4.4.\n\nRecommended fix: Upgrade to a supported release outside all affected ranges; the advisory's first patched version is a minimum fix for that advisory, not a complete upgrade recommendation. Guava uses Android/JRE release variants; select the applicable patched variant.\n\nApplicability: dependency-version match only, not proof of reachable exploitation. Dependency CLI failed (Gradle 1.4 HTTP download returned 403); only five directly declared dependencies, including test dependencies, were queried. Transitive dependencies were not resolved.",
+      "evidence": {
+        "files": [
+          "build.gradle:8"
+        ],
+        "explanation": "[CVE-2015-3253](https://github.com/advisories/GHSA-qg25-hgjv-cg9q): Improper Neutralization of Special Elements in Output Used by a Downstream Component in Apache Groovy\n\nSeverity: CRITICAL\n\nAffected dependencies:\n- org.codehaus.groovy:groovy-all:2.1.2 (declared at build.gradle:8); affected range: >= 1.7.0, <= 2.4.3; first patched version: 2.4.4.\n\nRecommended fix: Upgrade to a supported release outside all affected ranges; the advisory's first patched version is a minimum fix for that advisory, not a complete upgrade recommendation. Guava uses Android/JRE release variants; select the applicable patched variant.\n\nApplicability: dependency-version match only, not proof of reachable exploitation. Dependency CLI failed (Gradle 1.4 HTTP download returned 403); only five directly declared dependencies, including test dependencies, were queried. Transitive dependencies were not resolved."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2016-6814",
+      "title": "Deserialization of Untrusted Data in Groovy",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2016-6814](https://github.com/advisories/GHSA-xphj-m9cc-8fmq): Deserialization of Untrusted Data in Groovy\n\nSeverity: CRITICAL\n\nAffected dependencies:\n- org.codehaus.groovy:groovy-all:2.1.2 (declared at build.gradle:8); affected range: >= 1.7.0, <= 2.4.7; first patched version: 2.4.8.\n\nRecommended fix: Upgrade to a supported release outside all affected ranges; the advisory's first patched version is a minimum fix for that advisory, not a complete upgrade recommendation. Guava uses Android/JRE release variants; select the applicable patched variant.\n\nApplicability: dependency-version match only, not proof of reachable exploitation. Dependency CLI failed (Gradle 1.4 HTTP download returned 403); only five directly declared dependencies, including test dependencies, were queried. Transitive dependencies were not resolved.",
+      "evidence": {
+        "files": [
+          "build.gradle:8"
+        ],
+        "explanation": "[CVE-2016-6814](https://github.com/advisories/GHSA-xphj-m9cc-8fmq): Deserialization of Untrusted Data in Groovy\n\nSeverity: CRITICAL\n\nAffected dependencies:\n- org.codehaus.groovy:groovy-all:2.1.2 (declared at build.gradle:8); affected range: >= 1.7.0, <= 2.4.7; first patched version: 2.4.8.\n\nRecommended fix: Upgrade to a supported release outside all affected ranges; the advisory's first patched version is a minimum fix for that advisory, not a complete upgrade recommendation. Guava uses Android/JRE release variants; select the applicable patched variant.\n\nApplicability: dependency-version match only, not proof of reachable exploitation. Dependency CLI failed (Gradle 1.4 HTTP download returned 403); only five directly declared dependencies, including test dependencies, were queried. Transitive dependencies were not resolved."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CWE-665",
+      "title": "Improper Initialization",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:104"
+        ],
+        "explanation": "VendingMachine.reportingURL defaults to null; sendTransactionReport dereferences it at line 117 without requiring or checking setReportingURL initialization. Calling reporting before configuration fails in the submitted task. This is a potential code-quality pattern, not demonstrated attacker exploitation."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-682",
+      "title": "Incorrect Calculation",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product performs a calculation that generates incorrect or unintended results that are later used in security-critical decisions or resource management.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:99"
+        ],
+        "explanation": "VendingMachine.removeLargestCoinFromChange performs change.remove(biggestSmallerCoin) inside assert. With assertions disabled, returned coins remain in recorded inventory and later refunds can select already-returned coins, causing incorrect resource accounting."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-772",
+      "title": "Missing Release of Resource after Effective Lifetime",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:106"
+        ],
+        "explanation": "Each VendingMachine creates a single-thread executor. Once reporting starts its worker, task completion does not release the executor/thread; no shutdown lifecycle exists."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-775",
+      "title": "Missing Release of File Descriptor or Handle after Effective Lifetime",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product does not release a file descriptor or handle after its effective lifetime has ended, i.e., after the file descriptor/handle is no longer needed.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:126"
+        ],
+        "explanation": "VendingMachine.sendTransactionReport obtains the HTTP response input stream and discards it without closing it; no enclosing cleanup releases the response handle."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-567",
+      "title": "Unsynchronized Access to Shared Data in a Multithreaded Context",
+      "category": "Concurrency & Synchronization",
+      "severity": "potential",
+      "description": "The product does not properly synchronize shared data, such as static variables across threads, which can lead to undefined behavior and unpredictable data changes.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:105"
+        ],
+        "explanation": "VendingMachine.transactionLog is an ArrayDeque shared by caller-thread purchase() additions (line 54) and the internal reporting executor (lines 106, 113-121), which reads/removes entries without synchronization. Serializing reporting tasks does not serialize purchases with the worker. CWE-567, CWE-662 and CWE-820 describe this same underlying queue race, not three independent defects. Static pattern confirmed; no runtime reproduction or remote exploitability demonstrated."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-662",
+      "title": "Improper Synchronization",
+      "category": "Concurrency & Synchronization",
+      "severity": "potential",
+      "description": "The product utilizes multiple threads or processes to allow temporary access to a shared resource that can only be exclusive to one process at a time, but it does not properly synchronize these actions, which might cause simultaneous accesses of this resource by multiple threads or processes.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:105"
+        ],
+        "explanation": "VendingMachine.transactionLog is an ArrayDeque shared by caller-thread purchase() additions (line 54) and the internal reporting executor (lines 106, 113-121), which reads/removes entries without synchronization. Serializing reporting tasks does not serialize purchases with the worker. CWE-567, CWE-662 and CWE-820 describe this same underlying queue race, not three independent defects. Static pattern confirmed; no runtime reproduction or remote exploitability demonstrated."
+      },
+      "storyPoint": 8
+    },
+    {
+      "id": "CWE-820",
+      "title": "Missing Synchronization",
+      "category": "Concurrency & Synchronization",
+      "severity": "potential",
+      "description": "The product utilizes a shared resource in a concurrent manner but does not attempt to synchronize access to the resource.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:105"
+        ],
+        "explanation": "VendingMachine.transactionLog is an ArrayDeque shared by caller-thread purchase() additions (line 54) and the internal reporting executor (lines 106, 113-121), which reads/removes entries without synchronization. Serializing reporting tasks does not serialize purchases with the worker. CWE-567, CWE-662 and CWE-820 describe this same underlying queue race, not three independent defects. Static pattern confirmed; no runtime reproduction or remote exploitability demonstrated."
+      },
+      "storyPoint": 8
+    },
+    {
+      "id": "CWE-778",
+      "title": "Insufficient Logging",
+      "category": "Credentials & Secrets",
+      "severity": "potential",
+      "description": "When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.",
+      "evidence": {
+        "files": [
+          "src/main/java/co/freeside/demo/vending/VendingMachine.java:81"
+        ],
+        "explanation": "VendingMachine.returnCoins (lines 81-90) deducts monetary credit and requests physical coin refunds without recording amounts, outcomes, or partial-refund failures. This is a potential transaction-reconciliation audit gap; purchase auditing exists separately at line 54. No remote exploitability is established."
+      },
+      "storyPoint": 3
+    }
+  ]
+}
